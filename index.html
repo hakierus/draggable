@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <title>Homework</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div id="main">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="bg">
+                        <h1>Your Needs Matter</h1>
+                        <div class="drag">
+                            <div class="description">
+                                <p>You should succeed whenever you use SNIP. Below are the up-and-coming features we want to
+                                    include in the future updates to the app. By ordering these features from most-to-last
+                                    important, you can help steer the direction of SNIP's ongoing development.</p>
+                            </div>
+                            <div class="head-title">Most Important</div>
+                            <draggable class="dragArea" :list="list1" :options="{group:'people', handle:'.nav', animation:150}" @change="log">
+                                <div v-for="element in list1">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <p>{{element.name}}</p>
+                                            <i class="nav">
+                                                <div class="one"></div>
+                                                <div class="two"></div>
+                                                <div class="three"></div>
+                                            </i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </draggable>
+                        </div>
+                        <div class="request">REQUEST A FEATURE
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                        <div class="save text-center">
+                            <button type="button" class="btn-rnd btn btn-success">Save</button>
+                        </div>
+                        <div class="bottom-description">
+                                <p>You can update your priorities at any time.</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="json">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        {{list1 | json}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-strap/1.1.40/vue-strap.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+    <!-- <script src="./js/modal.js"></script> -->
+</body>
+
+</html>
