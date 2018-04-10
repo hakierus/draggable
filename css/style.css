@@ -1,103 +1,128 @@
 body {
-    margin:0px;
-    padding:0px;
-    width:100%;
-    background-color: #ebeaeb;
-    font-size: 1.1rem;
-    font-weight: 100;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  background-color: #ebeaeb;
+  font-size: 1.1rem;
+  font-weight: 100;
 }
 
 p {
-    color: #6d7171;
-    margin-top: 0;
-    margin-bottom: 0rem;
+  color: #6d7171;
+  margin-top: 0;
+  margin-bottom: 0rem;
+  
+}
+
+.list-group-item > p {
+    padding-left: 3%;
 }
 
 .bg {
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.description, .dragArea {
-    padding: 1.05rem;
+.description,
+.dragArea {
+  padding: 1.05rem;
 }
 
 .dragArea {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .head-title {
-    background-color: #71c7b0;
-    color: #ffffff;
-    text-align: center;
-    height: 79px;
-    margin-top: 1rem;
-    padding-top: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 15px;
-    right: 15px;
+  background-color: #71c7b0;
+  color: #ffffff;
+  text-align: center;
+  height: 79px;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 15px;
+  right: 15px;
 }
 
-.h1, h1 {
-    color: #6d7171;
-    font-weight: 100;
-    padding-top: 5rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-bottom: 1.7rem;
-    text-align: center;
-    font-size: 1.8rem;
+.h1,
+h1 {
+  color: #6d7171;
+  font-weight: 100;
+  padding-top: 5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 1.7rem;
+  text-align: center;
+  font-size: 1.8rem;
 }
 
 .fa-plus {
-    color: #f04e2e;
-    padding-left: 0.2rem;
+  color: #f04e2e;
+  padding-left: 0.2rem;
 }
 
-.fa-align-center {
-    right: 25px;
+.list-group-item > .fa-pencil {
+    color: #f04e2e;
+    font-size: smaller;
     position: absolute;
+    left: 3%;
     top: 35%;
+    display: none;
+  }
+
+.list-group-item:hover > .fa-pencil {
+    display:block;
+  }
+
+.fa-align-center {
+  right: 25px;
+  position: absolute;
+  top: 35%;
 }
 
 ul.list-group {
-    padding: 4px;
-    max-height: 55px;
-    margin-top: 5px;
+  padding: 4px;
+  max-height: 55px;
+  margin-top: 5px;
 }
 
 .list-group-item {
-    border: 1px solid #aaa6a7;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 -1px 10px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid #aaa6a7;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 -1px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .list-group-item:active {
-    transform: scale(1.1,1.1);
+  transform: scale(1.1, 1.1);
 }
 
 .request {
-    padding-top: 5%;
-    padding-bottom: 10%;
-    text-align: center;
-    font-size: 11px;
+  padding-top: 5%;
+  padding-bottom: 10%;
+  text-align: center;
+  font-size: 11px;
 }
 
 .btn {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .btn-rnd {
-    padding: 0.375rem 2.75rem;
-    border-radius: 1.75rem;
+  padding: 0.375rem 2.75rem;
+  border-radius: 1.75rem;
 }
 
 .btn-success {
-    background-color: #70c7b0;
-    border-color: #70c7b0;
+  background-color: #70c7b0;
+  border-color: #70c7b0;
+}
+
+.modal-footer > div > .text-center {
+    padding-right: 20%;
+    text-align: center !important;
 }
 
 /* .save.text-center {
@@ -105,47 +130,162 @@ ul.list-group {
 } */
 
 .bottom-description {
-    padding-bottom: 30%;
-    padding-top: 8%;
-    text-align: center;
+  padding-bottom: 30%;
+  padding-top: 8%;
+  text-align: center;
 }
 
 .bottom-description > p {
-    font-size: 0.9rem;
-    font-style: italic;
-    opacity: 0.6;
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.6;
 }
 
 .json {
-    padding: 2%;
-    font-size: 12px;
+  padding: 2%;
+  font-size: 12px;
 }
 
 .nav div {
-    height: 2px;
-    background-color: #6d7171;
-    margin: 3px 0;
-    border-radius: 25px;
-    transition: 0.3s;
+  height: 2px;
+  background-color: #6d7171;
+  margin: 3px 0;
+  border-radius: 25px;
+  transition: 0.3s;
 }
 .nav {
-    width: 30px;
-    display: block;
-    right: 25px;
-    position: absolute;
-    top: 1.2rem;
-    
+  width: 30px;
+  display: block;
+  right: 25px;
+  position: absolute;
+  top: 1.2rem;
 }
 .one {
-    width: 18px;
+  width: 18px;
 }
 .two {
-    width: 30px;
+  width: 30px;
 }
 .three {
-    width: 18px;
+  width: 18px;
 }
 
 .nav:hover div {
-    width: 30px;
+  width: 30px;
+}
+
+/***********MODAL**********/
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 0px 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-header {
+  padding: 0;
+}
+
+.modal-body {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+/*
+   * The following styles are auto-applied to elements with
+   * transition="modal" when their visibility is toggled
+   * by Vue.js.
+   *
+   * You can easily play with the modal transition by editing
+   * these styles.
+   */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.modal-header .close {
+    padding: 0;
+    margin: 0;
+    left: 30%;
+    position: relative;
+}
+.form-control {
+  border: none;
+  padding: 0;
+}
+
+input.form-control {
+  padding-top: 1rem;
+}
+
+.list-group-item:hover + span + i,
+.list-group-item + span:hover + i,
+.list-group-item + span + i:hover {
+  visibility: visible;
+}
+
+.list-group-item + span + i {
+  visibility: hidden;
 }
