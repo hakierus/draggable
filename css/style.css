@@ -11,11 +11,18 @@ p {
   color: #6d7171;
   margin-top: 0;
   margin-bottom: 0rem;
-  
+}
+
+.text-right {
+  display: initial;
+  font-size: small;
+  padding-left: 10%;
+  /* top: 60%; */
+  position: absolute;
 }
 
 .list-group-item > p {
-    padding-left: 3%;
+  padding-left: 3%;
 }
 
 .bg {
@@ -65,18 +72,26 @@ h1 {
   padding-left: 0.2rem;
 }
 
+.fa-trash-o {
+  color: #f04e2e;
+  display: inline;
+  position: relative;
+  font-size: 24px;
+  right: 20%;
+}
+
 .list-group-item > .fa-pencil {
-    color: #f04e2e;
-    font-size: smaller;
-    position: absolute;
-    left: 3%;
-    top: 35%;
-    display: none;
-  }
+  color: #f04e2e;
+  font-size: smaller;
+  position: absolute;
+  left: 3%;
+  top: 35%;
+  display: none;
+}
 
 .list-group-item:hover > .fa-pencil {
-    display:block;
-  }
+  display: block;
+}
 
 .fa-align-center {
   right: 25px;
@@ -103,7 +118,11 @@ ul.list-group {
   padding-top: 5%;
   padding-bottom: 10%;
   text-align: center;
-  font-size: 11px;
+}
+
+.btn-link {
+  color: #aaa6a7;
+  font-size: 11px !important;
 }
 
 .btn {
@@ -118,11 +137,6 @@ ul.list-group {
 .btn-success {
   background-color: #70c7b0;
   border-color: #70c7b0;
-}
-
-.modal-footer > div > .text-center {
-    padding-right: 20%;
-    text-align: center !important;
 }
 
 /* .save.text-center {
@@ -223,6 +237,20 @@ ul.list-group {
   float: right;
 }
 
+.modal-footer > div > .btn-success {
+  margin-right: 35px;
+  text-align: center !important;
+}
+
+.modal {
+  position:fixed;
+  top:auto;
+  right:auto;
+  left:auto;
+  bottom:0;
+  
+}
+
 /*
    * The following styles are auto-applied to elements with
    * transition="modal" when their visibility is toggled
@@ -247,37 +275,54 @@ ul.list-group {
 }
 
 button.close {
-    -webkit-appearance: none;
-    padding: 0;
-    cursor: pointer;
-    background: 0 0;
-    border: 0;
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
 }
 
 .close {
-    float: right;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    filter: alpha(opacity=20);
-    opacity: .2;
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: 0.2;
 }
 
 .modal-header .close {
-    padding: 0;
-    margin: 0;
-    left: 30%;
-    position: relative;
+  padding: 0;
+  margin: 0;
+  left: 50%;
+  position: relative;
 }
 .form-control {
   border: none;
   padding: 0;
 }
 
-input.form-control {
+/* input.form-control {
   padding-top: 1rem;
+} */
+
+input.transparent-input,
+textarea.transparent-input {
+  border: none !important;
+}
+
+.transparent-input {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+input.transparent-input,
+textarea.transparent-input {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .list-group-item:hover + span + i,
@@ -288,4 +333,10 @@ input.form-control {
 
 .list-group-item + span + i {
   visibility: hidden;
+}
+
+.col {
+  width: 125% !important;
+  max-width: 125% !important;
+  padding: 0;
 }
