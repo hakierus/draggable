@@ -8,7 +8,7 @@ var vm = new Vue({
   data: {
     list: [
       {
-        name: "Offlie Mode",
+        name: "Offline Mode",
         description: "Short description",
         isEditable: false,
         id: 1
@@ -46,7 +46,6 @@ var vm = new Vue({
     ],
     showModal: false,
     isEditableTrash: false,
-    disableButton: "disabled",
     title: "",
     body: "",
     id: "",
@@ -112,15 +111,11 @@ var vm = new Vue({
     },
     countdown: function(body) {
       this.remainingCount = this.maxCount - this.body.length;
-    },
-    countTitle: function(title) {
-      if(title.length <= 0){
-        disableButton = "disabled";
-      }
-      else {
-        disableButton = "";
-      }
-
+    }
+  },
+  computed: {
+    isEditable: function() {
+        editable: this.isEditableTrash === 'true';
     }
   }
 });

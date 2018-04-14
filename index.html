@@ -6,6 +6,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
 <body>
@@ -17,22 +18,27 @@
                         <h1>Your Needs Matter</h1>
                         <div class="drag">
                             <div class="description">
-                                <p>You should succeed whenever you use SNIP. Below are the up-and-coming features we want to
-                                    include in the future updates to the app. By ordering these features from most-to-last
-                                    important, you can help steer the direction of SNIP's ongoing development.</p>
+                                <p>You should succeed whenever you use
+                                    <br /> SNIP. Below are the up-and-coming features
+                                    <br /> we want to include in the future updates to
+                                    <br /> the app. By ordering these features from
+                                    <br /> most-to-least important, you can help steer
+                                    <br /> the direction of SNIP's ongoing development.</p>
                             </div>
-                            <div class="head-title">Most Important</div>
+                            <div class="head-title">
+                                <span class="align-middle">Most Important</span>
+                            </div>
                             <draggable class="dragArea" :list="list" :options="{group:'people', handle:'.nav', animation:150}" @change="log">
                                 <div v-for="element in list">
                                     <ul class="list-group">
-                                        <li class="list-group-item" id="show-modal" v-on:click="edit(element, list.length), countdown(body)">
-                                            <i v-if="element.isEditable" class="fa fa-pencil" aria-hidden="true"></i>
-                                            <p>{{element.name}}</p>
-                                            <i class="nav">
-                                                <div class="one"></div>
-                                                <div class="two"></div>
-                                                <div class="three"></div>
-                                            </i>
+                                        <li v-if="!element.isEditable" class="list-group-item" id="show-modal" v-on:click="edit(element, list.length), countdown(body)">
+                                            <p v-if="!element.isEditable" class="text-normal">{{element.name}}</p>
+                                            <img class="nav" src="images/bars.png" />
+                                        </li>
+                                        <li v-if="element.isEditable" class="list-group-item colored" id="show-modal" v-on:click="edit(element, list.length), countdown(body)">
+                                                <i v-if="element.isEditable" class="fal fa-pencil" aria-hidden="true"></i>
+                                                <p v-if="element.isEditable" class="text-fixed">{{element.name}}</p>
+                                                <img class="nav" src="images/bars.png" />
                                         </li>
                                     </ul>
                                 </div>
@@ -65,10 +71,12 @@
         <modal v-if="showModal" @close="showModal = false">
             <h3 slot="header">
                 <button type="button" class="close" @click="showModal = false">
-                    <span>×</span>
+                    <!-- <span>×</span> -->
+                    <img class="close" src="images/icon-close-round.svg" height="20px" width="20px"/>
                 </button>
                 <div class="col">
-                    <input type="text" class="form-control transparent-input" v-on:keyup="counttitle(title)" v-model="title" v-bind:placeholder="placeholderTitle" maxlength="25" required>
+                    <input type="text" class="form-control transparent-input" v-model="title" v-bind:placeholder="placeholderTitle" maxlength="25"
+                        required>
                 </div>
             </h3>
             <div class="modal-body" slot="body">
@@ -76,9 +84,15 @@
                     v-on:keyup="countdown(body)" maxlength="250"></textarea>
             </div>
             <div slot="footer">
-                <i v-if="isEditableTrash" class="fa fa-trash-o" v-on:click="remove(id, list)"></i>
-                <button type="button" class="btn-rnd btn btn-success center-block" v-on:click="submit(title, body, id, list)">Submit</button>
-                <p class='text-right text-small'>{{remainingCount}}</p>
+                <button v-if="isEditableTrash && title.length > 0" type="button" class="btn-rnd btn btn-success center-block" v-on:click="submit(title, body, id, list)">Save</button>
+                <button v-if="isEditableTrash && title.length === 0" type="button" class="btn-rnd btn btn-success center-block" v-on:click="submit(title, body, id, list)"
+                    disabled>Save</button>
+                <button v-if="!isEditableTrash && title.length > 0" type="button" class="btn-rnd btn btn-success center-block" v-on:click="submit(title, body, id, list)">Submit</button>
+                <button v-if="!isEditableTrash && title.length === 0" type="button" class="btn-rnd btn btn-success center-block" v-on:click="submit(title, body, id, list)"
+                    disabled>Submit</button>
+                <img v-if="isEditableTrash" class="trash" src="images/trash.svg" alt="remove element" />
+                <p v-if="!isEditableTrash" class='text-right text-small'>{{remainingCount}}</p>
+                <p v-if="isEditableTrash" class='text-right-moved text-small'>{{remainingCount}}</p>
             </div>
         </modal>
         <script type="text/x-template" id="modal-template">
@@ -86,19 +100,19 @@
                 <div class="modal-mask">
                     <div class="modal-wrapper">
                         <div class="modal-container">
-    
+
                             <div class="modal-header">
                                 <slot name="header">
                                     default header
                                 </slot>
                             </div>
-    
+
                             <div class="modal-body">
                                 <slot name="body">
                                     default body
                                 </slot>
                             </div>
-    
+
                             <div class="modal-footer">
                                 <slot name="footer">
                                     default footer
@@ -114,7 +128,7 @@
         </script>
 
     </div>
-    
+
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
     <script src="js/isMobileBrowser.js"></script>
@@ -122,6 +136,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
     <script src="js/script.js"></script>
     <script type="text/javascript" src="js/data.json"></script>
     <!-- <script src="./js/modal.js"></script> -->
