@@ -44,7 +44,8 @@ p.text-fixed {
 
 .bg {
   background-color: #ffffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .description {
@@ -133,11 +134,14 @@ ul.list-group {
 
 .list-group-item {
   border: 1px solid #aaa6a7;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 -1px 10px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 -1px 10px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 -1px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .list-group-item:active {
-  transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+      -ms-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
   border-color: #4ce9be;
 }
 
@@ -201,6 +205,8 @@ ul.list-group {
   background-color: #6d7171;
   margin: 3px 0;
   border-radius: 25px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 .nav {
@@ -235,6 +241,8 @@ ul.list-group {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: table;
+  -webkit-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 
@@ -250,7 +258,10 @@ ul.list-group {
   padding: 0px 20px;
   background-color: #fff;
   border-radius: 3px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -312,7 +323,8 @@ ul.list-group {
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+      transform: scale(1.1);
 }
 
 button.close {
@@ -363,7 +375,8 @@ input.transparent-input,
 textarea.transparent-input {
   background-color: rgba(0, 0, 0, 0) !important;
   border: none !important;
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 .list-group-item:hover + span + i,
