@@ -53,7 +53,8 @@ var vm = new Vue({
     placeholderBody: "",
     placeholderTitle: "",
     maxCount: 250,
-    remainingCount: 250
+    remainingCount: 250,
+    featureText: "REQUEST A FEATURE"
   },
   methods: {
     submit: function(title, body, index, list) {
@@ -65,6 +66,7 @@ var vm = new Vue({
           id: this.list.length + 1
         });
         this.showModal = false;
+        this.featureText = "REQUEST ANOTHER FEATURE";
       } else {
         list[index - 1].name = title;
         list[index - 1].description = body;
@@ -74,6 +76,9 @@ var vm = new Vue({
     remove: function(index, list) {
       list.splice(index -1, 1);
       this.showModal = false;
+      if (list.length == 6) {
+        this.featureText = "REQUEST A FEATURE";
+      }
     },
     clone: function(el) {
       return {
@@ -90,7 +95,8 @@ var vm = new Vue({
       this.isEditableTrash = true;
       if (element.isEditable) {
         this.showModal = true;
-      }
+      };
+      this.scrollToBottom()
     },
     okAction: function() {
       showModal: false;
@@ -108,14 +114,19 @@ var vm = new Vue({
       this.showModal = true;
       this.remainingCount = 250;
       this.isEditableTrash = false;
+      this.scrollToBottom()
     },
     countdown: function(body) {
       this.remainingCount = this.maxCount - this.body.length;
+    },
+    scrollToBottom: function() {
+      window.scrollTo(0, document.body.scrollHeight);
     }
   },
   computed: {
     isEditable: function() {
         editable: this.isEditableTrash === 'true';
     }
+
   }
 });
