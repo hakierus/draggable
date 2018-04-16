@@ -28,7 +28,7 @@ p {
 .text-right-moved {
   display: initial;
   font-size: small;
-  padding-left: 9%;
+  padding-left: 100%;
   top: 71%;
   position: absolute;
 }
@@ -104,7 +104,7 @@ img.trash {
   padding-left: -17%;
   top: 71%;
   position: absolute;
-  left: 43%;
+  left: -50%;
 }
 
 .list-group-item > .fa-pencil {
@@ -292,6 +292,10 @@ ul.list-group {
 
 .modal-footer {
   border-top: none;
+}
+
+.modal-footer  > div {
+	position: relative;
 }
 
 .modal {
