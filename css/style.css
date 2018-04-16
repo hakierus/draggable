@@ -20,7 +20,7 @@ p {
 .text-right {
   display: initial;
   font-size: small;
-  padding-left: 10%;
+  padding-left: 100%;
   top: 71%;
   position: absolute;
 }
