@@ -36,17 +36,17 @@
                                             <img class="nav" src="images/bars.png" />
                                         </li>
                                         <li v-if="element.isEditable" class="list-group-item colored" id="show-modal" v-on:click="edit(element, list.length), countdown(body)">
-                                                <i v-if="element.isEditable" class="fa fa-pencil" aria-hidden="true"></i>
-                                                <p v-if="element.isEditable" class="text-fixed">{{element.name}}</p>
-                                                <img class="nav" src="images/bars.png" />
+                                            <img v-if="element.isEditable" class="pencil" src="images/pencil.svg" />
+                                            <p v-if="element.isEditable" class="text-fixed">{{element.name}}</p>
+                                            <img class="nav" src="images/bars.png" />
                                         </li>
                                     </ul>
                                 </div>
                             </draggable>
                         </div>
                         <div class="request">
-                            <button type="button" class="btn btn-link" id="show-modal" v-on:click="open">REQUEST A FEATURE
-                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            <button type="button" class="btn btn-link" id="show-modal" v-on:click="open">{{featureText}}
+                                <img class="plus" src="images/plus-sign.png" />
                             </button>
                         </div>
                         <div class="save text-center">
@@ -70,10 +70,7 @@
         </div>
         <modal v-if="showModal" @close="showModal = false">
             <h3 slot="header">
-                <button type="button" class="close" @click="showModal = false">
-                    <!-- <span>×</span> -->
-                    <img class="close" src="images/icon-close-round.svg" height="20px" width="20px"/>
-                </button>
+                    <img class="closeModal" v-on:click="showModal = false" src="images/icon-close-round.svg" height="20px" width="20px" />
                 <div class="col">
                     <input type="text" class="form-control transparent-input" v-model="title" v-bind:placeholder="placeholderTitle" maxlength="25"
                         required>
@@ -90,7 +87,7 @@
                 <button v-if="!isEditableTrash && title.length > 0" type="button" class="btn-rnd btn btn-success center-block" v-on:click="submit(title, body, id, list)">Submit</button>
                 <button v-if="!isEditableTrash && title.length === 0" type="button" class="btn-rnd btn btn-success center-block" v-on:click="submit(title, body, id, list)"
                     disabled>Submit</button>
-                <img v-if="isEditableTrash" class="trash" src="images/trash.svg" alt="remove element" />
+                <img v-if="isEditableTrash" class="trash" src="images/trash.svg" alt="remove element" v-on:click="remove(id, list)"/>
                 <p v-if="!isEditableTrash" class='text-right text-small'>{{remainingCount}}</p>
                 <p v-if="isEditableTrash" class='text-right-moved text-small'>{{remainingCount}}</p>
             </div>
@@ -139,7 +136,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
     <script src="js/script.js"></script>
     <script type="text/javascript" src="js/data.json"></script>
-    <!-- <script src="./js/modal.js"></script> -->
 </body>
 
 </html>
