@@ -20,7 +20,7 @@ p {
 .text-right {
   display: initial;
   font-size: small;
-  padding-left: 50px;
+  padding-left: 100%;
   top: 71%;
   position: absolute;
 }
@@ -28,7 +28,7 @@ p {
 .text-right-moved {
   display: initial;
   font-size: small;
-  padding-left: 50px;
+  padding-left: 100%;
   top: 71%;
   position: absolute;
 }
@@ -354,7 +354,8 @@ button.close {
 .modal-header .close {
   padding: 0;
   margin: 0;
-  left: 50%;
+  left: 35%;
+  top: 6px;
   position: relative;
 }
 .form-control {
